@@ -1,0 +1,40 @@
+# Created by .ignore support plugin (hsz.mobi)
+### Example user template template
+### Example user template
+
+# IntelliJ project files
+.idea
+*.iml
+out
+gen
+### Example user template template
+### Example user template
+
+# IntelliJ project files
+.idea
+*.iml
+out
+gen
+.idea/
+leap-dao/src/main/resources/priv/leap/dao/mappers/administrator/admin/
+leap-dao/src/test/
+leap-dao/target/generated-sources/
+leap-entity/src/main/resources/
+leap-entity/src/test/
+leap-entity/target/generated-sources/
+leap-service/src/main/java/priv/leap/service/background/administrator/
+leap-service/src/main/resources/
+leap-service/src/test/
+leap-service/target/generated-sources/
+leap-vo/src/main/resources/
+leap-vo/src/test/
+leap-vo/target/generated-sources/
+leap-web/src/main/java/priv/leap/controller/background/administrator/
+leap-web/src/main/resources/
+leap-web/target/generated-sources/
+leap-web/target/generated-test-sources/
+leap-web/target/leap-web-1.0-SNAPSHOT/WEB-INF/classes/priv/leap/controller/administrator/
+leap-web/target/leap-web-1.0-SNAPSHOT/WEB-INF/classes/priv/leap/controller/config/
+leap-web/target/leap-web-1.0-SNAPSHOT/css/
+leap-web/target/leap-web-1.0-SNAPSHOT/js/
+leap-web/web/WEB-INF/user/
