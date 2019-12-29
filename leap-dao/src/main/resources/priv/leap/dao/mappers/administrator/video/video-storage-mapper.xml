@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="priv.leap.dao.background.video.VideoStorageDao">
+
+    <insert id="insertVideoStorage">
+        insert into video_storage(v_id, s_size,s_path, s_storage_time, s_cst_create, s_cst_modified)
+        values(#{videoStorage.vId},#{videoStorage.sSize},#{videoStorage.sPath},NOW(),NOW(),NOW())
+    </insert>
+
+</mapper>

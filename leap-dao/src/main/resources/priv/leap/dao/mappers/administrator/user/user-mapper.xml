@@ -1,0 +1,56 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="priv.leap.dao.background.user.AdminUserDao">
+
+    <resultMap id="userInfoMap" type="priv.leap.entity.background.user.UserinfoEntity">
+        <id property="uId" column="u_id"/>
+        <result property="uName" column="u_name"/>
+        <result property="uPassword" column="u_password"/>
+        <result property="uAge" column="u_age"/>
+        <result property="uSex" column="u_sex"/>
+        <result property="uPhone" column="u_phone"/>
+        <result property="interest" column="interest"/>
+        <result property="uIntroduce" column="u_introduce"/>
+        <result property="isMember" column="is_member"/>
+        <result property="uRegistrationTime" column="u_registration_time"/>
+        <result property="uLoginTime" column="u_login_time"/>
+        <result property="aCstCreate" column="a_cst_create"/>
+        <result property="aModified" column="a_modified"/>
+    </resultMap>
+
+    <select id="getAll" resultMap="userInfoMap">
+        select u_id,u_name,u_password,u_age,u_sex,u_phone,interest,u_introduce,
+            is_member,u_registration_time,u_login_time
+        from userinfo
+    </select>
+    <select id="getByName" resultMap="userInfoMap">
+        select u_id,u_name,u_password,u_age,u_sex,u_phone,interest,u_introduce
+        ,is_member,u_registration_time,u_login_time
+        from userinfo where u_name = #{uName}
+    </select>
+
+    <insert id="insertUser">
+        INSERT INTO userinfo(u_name, u_password, u_age, u_phone, is_member, u_registration_time, u_login_time, a_cst_create,a_modified)
+        VALUES (#{userinfo.uName}, #{userinfo.uPassword}, #{userinfo.uAge}, #{userinfo.uPhone}, #{userinfo.isMember}, NOW(), NOW(), NOW(), NOW());
+    </insert>
+
+    <delete id="deleteUser">
+        delete from userinfo where u_id = #{uId}
+    </delete>
+
+    <select id="getById" resultType="priv.leap.entity.background.user.UserinfoEntity">
+        select u_id,u_name,u_password,u_age,u_sex,u_phone,interest,u_introduce
+            ,is_member,u_registration_time,u_login_time
+        from userinfo where u_id = #{uId}
+    </select>
+
+    <update id="updateUser">
+        update userinfo set u_name=#{userinfo.uName},u_password=#{userinfo.uPassword},u_age=#{userinfo.uAge},u_sex=#{userinfo.uSex},
+                            u_phone=#{userinfo.uPhone},interest=#{userinfo.interest},u_introduce=#{userinfo.uIntroduce},is_member=#{userinfo.isMember}
+        where u_id = #{userinfo.uId}
+    </update>
+
+
+</mapper>

@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="priv.leap.dao.background.video.VideoInfoDao">
+
+    <resultMap id="videoinfo" type="priv.leap.entity.background.video.VideoinfoEntity">
+        <id property="vId" column="v_id"/>
+        <result property="vName" column="v_name"/>
+        <result property="vType" column="v_type"/>
+        <result property="vVideoType" column="v_video_type"/>
+        <result property="vRegion" column="v_region"/>
+        <result property="vDefinition" column="v_definition"/>
+        <result property="vLanguage" column="v_language"/>
+        <result property="vRemark" column="v_remark"/>
+        <result property="vDateIssued" column="v_date_issued"/>
+        <result property="vCstCreate" column="v_cst_create"/>
+        <result property="vCstModified" column="v_cst_modified"/>
+     </resultMap>
+
+    <select id="getAll" resultMap="videoinfo">
+        select v_id, v_name, v_type, v_video_type, v_region, v_definition, v_language, v_remark, v_date_issued, v_cst_create, v_cst_modified
+         from videoinfo
+    </select>
+
+    <select id="getByName" resultMap="videoinfo">
+            select v_id, v_name, v_type, v_video_type, v_region, v_definition, v_language, v_remark, v_date_issued
+        from videoinfo where v_name = #{vName}
+    </select>
+
+    <select id="getMaxId" resultType="java.lang.Long">
+        select max(v_id) from videoinfo
+    </select>
+
+    <insert id="insertVideo">
+        INSERT INTO videoinfo(v_name, v_type, v_video_type, v_region, v_definition, v_language, v_remark, v_date_issued, v_cst_create, v_cst_modified)
+        VALUES(#{videoInfo.vName},#{videoInfo.vType},#{videoInfo.vVideoType},#{videoInfo.vRegion},#{videoInfo.vDefinition},#{videoInfo.vLanguage},#{videoInfo.vRemark},#{videoInfo.vDateIssued},NOW(),NOW())
+    </insert>
+
+
+</mapper>

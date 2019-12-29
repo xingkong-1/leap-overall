@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="priv.leap.dao.background.user.UserMessageDao">
+    <resultMap id="inserMessage" type="priv.leap.entity.background.user.UserMessage">
+        <id property="umId" column="um_id"/>
+        <result property="uId" column="u_id"/>
+        <result property="umContent" column="um_content"/>
+        <result property="umReleaseTime" column="um_release_time"/>
+        <result property="umCstCreate" column="um_cst_create"/>
+        <result property="umModified" column="um_modified"/>
+    </resultMap>
+    <select id="getMessage" resultMap="inserMessage">
+        select um_id, u_id, um_content, um_release_time, um_cst_create, um_modified from user_message
+        where u_id = #{uId}
+    </select>
+    <insert id="insertUser">
+        insert into user_message(u_id, um_content, um_release_time, um_cst_create, um_modified)
+        VALUES (#{userMessage.uId},#{userMessage.umContent},NOW(),NOW(),NOW())
+    </insert>
+</mapper>

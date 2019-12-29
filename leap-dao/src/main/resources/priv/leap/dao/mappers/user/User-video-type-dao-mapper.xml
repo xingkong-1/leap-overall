@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="priv.leap.dao.user.UserVideoTypeDao">
+
+    <resultMap id="picture" type="priv.leap.entity.background.video.PictureEntity">
+        <id property="pId" column="p_id"/>
+        <result property="vId" column="v_id"/>
+        <result property="pName" column="p_name"/>
+        <result property="pSize" column="p_path"/>
+        <result property="pSize" column="p_size"/>
+        <result property="pStorageTime" column="p_storage_time"/>
+        <result property="pCstCreate" column="p_cst_create"/>
+        <result property="pCstCreate" column="p_cst_modified"/>
+    </resultMap>
+
+    <select id="getPictureData" resultMap="picture">
+        SELECT p_name,p_path FROM videoinfo as v LEFT JOIN picture AS p ON v.v_id = p.v_id
+        WHERE v_type = #{typeVlaue}
+    </select>
+
+
+</mapper>

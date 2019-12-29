@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="priv.leap.dao.background.video.VideoPictureDao">
+    <select id="insertPicture">
+        insert INTO picture(v_id,p_name,p_size,p_path, p_storage_time, p_cst_create, p_cst_modified)
+        VALUES (#{pictureMap.vId},#{pictureMap.pName},#{pictureMap.pSize},#{pictureMap.pPath},NOW(),NOW(),NOW())
+    </select>
+
+</mapper>

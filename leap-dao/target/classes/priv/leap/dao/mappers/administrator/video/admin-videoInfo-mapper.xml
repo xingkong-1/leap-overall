@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="priv.leap.dao.background.video.AdminVideoInfoDao">
+
+    <resultMap id="videoinfo" type="priv.leap.entity.background.video.VideoinfoEntity">
+        <id property="vId" column="v_id"/>
+        <result property="vName" column="v_name"/>
+        <result property="vType" column="v_type"/>
+        <result property="vVideoType" column="v_video_type"/>
+        <result property="vRegion" column="v_region"/>
+        <result property="vDefinition" column="v_definition"/>
+        <result property="vLanguage" column="v_language"/>
+        <result property="vRemark" column="v_remark"/>
+        <result property="vDateIssued" column="v_date_issued"/>
+        <result property="vCstCreate" column="v_cst_create"/>
+        <result property="vCstModified" column="v_cst_modified"/>
+    </resultMap>
+
+    <select id="getByVideoInfo" resultMap="videoinfo"   >
+        SELECT v_id, v_name, v_type, v_video_type, v_region, v_definition, v_language, v_remark, v_date_issued,
+        v_cst_create,v_cst_modified FROM videoinfo
+        <trim prefix="where" prefixOverrides="AND|OR" suffixOverrides="AND|OR">
+            <if test="vType != '全部'">
+                v_video_type=#{vType} AND
+            </if>
+            <if test="vVideoType != '全部'">
+                v_type=#{vVideoType} AND
+            </if>
+            <if test="vRegion != '全部'">
+                v_region=#{vRegion} AND
+            </if>
+            <if test="vDateIssued != '全部%'">
+                v_date_issued like #{vDateIssued}
+            </if>
+        </trim>
+    </select>
+
+</mapper>

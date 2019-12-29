@@ -1,0 +1,45 @@
+*{
+    margin: 0;
+    padding: 0;
+}
+
+/* 导航栏*/
+.searchSum{
+    height: 50px;
+    background-color:#f2f2f2;
+}
+
+.search{
+    float: left;
+}
+
+.funBuild{
+    height: 50px;
+}
+
+/* 显示区 */
+.dataShow{
+    height: 510px;
+    background-color: #FFFA5F;
+}
+
+.ul{
+    display: inline-block;
+    overflow: hidden;
+    width: 1500px;
+    border: 1px solid #000000;
+    height: 20px;
+}
+li{
+    float: left;
+    list-style-type: none;
+    border: 1px solid #EE5C12;
+    margin-left: 10px;
+
+}
+
+/* 底部 */
+.base{
+    height: 80px;
+    background-color:slategray;
+}

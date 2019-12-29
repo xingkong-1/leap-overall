@@ -1,0 +1,60 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="priv.leap.dao.user.VideoPlayDao">
+
+    <resultMap id="videoInfo" type="priv.leap.entity.background.video.VideoinfoEntity">
+        <id property="vId" column="v_id"/>
+        <result property="vName" column="v_name"/>
+        <result property="vSource" column="v_source"/>
+        <result property="vType" column="v_type"/>
+        <result property="vDefinition" column="v_definition"/>
+        <result property="vWatchNumber" column="v_watch_number"/>
+        <result property="vIntro" column="v_intro"/>
+        <result property="vEncounter" column="v_encounter"/>
+        <result property="vRemark" column="v_remark"/>
+        <result property="vDateIssued" column="v_date_issued"/>
+        <result property="vCstCreate" column="v_cst_create"/>
+        <result property="vModified" column="v_modified"/>
+    </resultMap>
+    <resultMap id="videoStorage" type="priv.leap.entity.background.video.VideoStorageEntity">
+        <id property="sId" column="s_id"/>
+        <result property="vId" column="v_id"/>
+        <result property="sSize" column="s_size"/>
+        <result property="sPath" column="s_path"/>
+        <result property="sStorageTime" column="s_storage_time"/>
+        <result property="sCstCreate" column="s_cst_create"/>
+        <result property="sModified" column="s_modified"/>
+    </resultMap>
+    <resultMap id="picture" type="priv.leap.entity.background.video.PictureEntity">
+        <id property="pId" column="p_id"/>
+        <result property="vId" column="v_id"/>
+        <result property="pName" column="p_name"/>
+        <result property="pSize" column="p_size"/>
+        <result property="pPath" column="p_path"/>
+        <result property="pStorageTime" column="p_storage_time"/>
+        <result property="pCstCreate" column="p_cst_create"/>
+        <result property="pModified" column="p_modified"/>
+    </resultMap>
+
+
+
+    <select id="getVideoAll" resultMap="videoInfo">
+        select v_id, v_name, v_type, v_video_type, v_region, v_definition, v_language, v_remark, v_date_issued, v_cst_create, v_cst_modified
+        from videoinfo;
+    </select>
+
+    <select id="getPictureAll" resultMap="picture">
+        select p_id, v_id, p_name, p_path, p_size, p_storage_time, p_cst_create, p_cst_modified
+         from picture
+    </select>
+
+    <select id="getVideoStorageAll" resultMap="videoStorage">
+        select s_id, v_id, s_size, s_path, s_storage_time, s_cst_create, s_cst_modified
+         from video_storage
+    </select>
+
+
+
+</mapper>

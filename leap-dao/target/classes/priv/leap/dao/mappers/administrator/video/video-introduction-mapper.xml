@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="priv.leap.dao.background.video.VideoIntroductionDao">
+    <resultMap id="introductionInsertMap" type="priv.leap.entity.background.video.VideoIntroductionEntity">
+        <id property="viId" column="vi_id"/>
+        <result property="vId" column="v_id"/>
+        <result property="viNumberVisitors" column="vi_number_visitors"/>
+        <result property="viPostage" column="vi_postage"/>
+        <result property="viCharacteristic" column="vi_characteristic"/>
+        <result property="viAge" column="vi_age"/>
+        <result property="viSex" column="vi_sex"/>
+        <result property="viIntro" column="vi_intro"/>
+        <result property="viGrade" column="vi_grade"/>
+        <result property="viCstCreate" column="vi_cst_create"/>
+        <result property="viCstModified" column="vi_cst_modified"/>
+    </resultMap>
+
+
+    <insert id="IntroductionInsert">
+        insert into video_introduction(v_id,vi_number_visitors, vi_postage, vi_characteristic, vi_age, vi_sex, vi_intro, vi_grade, vi_cst_create, vi_cst_modified)
+        VALUES(#{videoIntroduction.vId},#{videoIntroduction.viNumberVisitors},#{videoIntroduction.viPostage},#{videoIntroduction.viCharacteristic},
+        #{videoIntroduction.viAge},#{videoIntroduction.viSex},#{videoIntroduction.viIntro},#{videoIntroduction.viGrade},NOW(),NOW())
+    </insert>
+
+</mapper>
