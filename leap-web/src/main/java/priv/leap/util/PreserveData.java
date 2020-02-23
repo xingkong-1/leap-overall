@@ -12,6 +12,7 @@ import java.util.Map;
  * @Date: 2019/12/13 11:15
  * @Description: 保存数据到数据库
  */
+@SuppressWarnings("all")
 public class PreserveData {
     /**
      * @param: [navigationVO, file, picture, pictureFilePath, videoFilePath, service]

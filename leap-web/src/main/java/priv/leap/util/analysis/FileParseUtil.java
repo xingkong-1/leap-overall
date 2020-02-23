@@ -16,6 +16,7 @@ import java.util.Map;
  * @date 2019/11/7 14:05
  * 提取视频流信息
  */
+@SuppressWarnings("all")
 public class FileParseUtil {
 
 

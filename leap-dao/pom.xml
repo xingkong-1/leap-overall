@@ -12,10 +12,6 @@
     <artifactId>leap-dao</artifactId>
 
     <dependencies>
-        <dependency>
-            <groupId>org.springframework</groupId>
-            <artifactId>spring-context</artifactId>
-        </dependency>
 
         <dependency>
             <groupId>org.aspectj</groupId>

@@ -18,6 +18,7 @@ import java.util.*;
  * @date: 2019/9/16
  * @description: 视频、图片 上传校验工具类
  */
+@SuppressWarnings("all")
 public class FileCheckUtils {
     private static Logger logger = LoggerFactory.getLogger(FileCheckUtils.class);
 
